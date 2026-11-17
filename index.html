@@ -179,8 +179,16 @@ footer {
   padding:25px 0;color:var(--muted);font-size:11px;
 }
 .footer-inner {display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
-.reveal {opacity:0;transform:translateY(20px);transition:.7s}
-.reveal.visible {opacity:1;transform:translateY(0)}
+.reveal {
+  opacity: 1;
+  transform: none;
+  transition: .7s;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
 @media(max-width:760px) {
   .nav-links {
     display:none;position:absolute;top:78px;left:0;right:0;
