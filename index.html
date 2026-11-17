@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#101b2b">
+<meta name="description" content="Remi Gachoki creates refined, responsive websites and digital experiences for ambitious businesses.">
+<title>Remi Gachoki | Digital Experiences</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --navy:#101b2b;
+  --navy2:#17283c;
+  --cream:#f6f2e9;
+  --copper:#bd875c;
+  --muted:#aeb9c4;
+  --white:#fff;
+}
+* {box-sizing:border-box;margin:0;padding:0}
+html {scroll-behavior:smooth}
+body {
+  background:var(--navy);
+  color:var(--cream);
+  font-family:'DM Sans',sans-serif;
+  line-height:1.7;
+}
+a {color:inherit;text-decoration:none}
+button {font:inherit}
+.container {width:min(1160px,90%);margin:auto}
+nav {
+  position:sticky;top:0;z-index:10;
+  background:rgba(16,27,43,.94);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,.09);
+}
+.nav-inner {
+  min-height:78px;display:flex;
+  align-items:center;justify-content:space-between;
+  gap:20px;
+}
+.logo {font-weight:700;letter-spacing:2px;font-size:15px}
+.logo span {color:var(--copper)}
+.nav-links {display:flex;gap:27px;font-size:13px;color:var(--muted)}
+.nav-links a:hover {color:var(--copper)}
+.menu-btn {
+  display:none;background:none;color:white;
+  border:1px solid #526071;padding:8px 12px;border-radius:5px;
+}
+.hero {
+  min-height:660px;display:flex;align-items:center;
+  position:relative;overflow:hidden;
+  background:
+   radial-gradient(ellipse at 80% 40%,rgba(189,135,92,.18),transparent 42%),
+   linear-gradient(120deg,#101b2b,#17283c);
+}
+.hero:after {
+  content:"";position:absolute;width:430px;height:430px;
+  border:1px solid rgba(189,135,92,.24);
+  border-radius:50%;right:-100px;top:100px;
+  box-shadow:0 0 0 45px rgba(189,135,92,.035),
+             0 0 0 95px rgba(189,135,92,.025);
+}
+.hero-content {position:relative;z-index:1;max-width:760px;padding:100px 0}
+.eyebrow {
+  color:var(--copper);text-transform:uppercase;
+  letter-spacing:3px;font-size:11px;font-weight:700;
+}
+h1,h2,h3 {font-family:'Playfair Display',serif;font-weight:500}
+h1 {font-size:clamp(48px,8vw,88px);line-height:1.08;margin:25px 0}
+h1 span {color:var(--copper);font-style:italic}
+.hero p {max-width:590px;color:#c4cbd2;font-size:17px}
+.actions {display:flex;gap:14px;flex-wrap:wrap;margin-top:35px}
+.btn {
+  display:inline-flex;align-items:center;justify-content:center;
+  padding:13px 22px;border:1px solid var(--copper);
+  font-size:12px;font-weight:700;letter-spacing:1px;
+  text-transform:uppercase;transition:.25s;
+}
+.btn.primary {background:var(--copper);color:#111b29}
+.btn:hover {transform:translateY(-3px);background:var(--cream);color:var(--navy)}
+section {padding:100px 0}
+.section-head {max-width:650px;margin-bottom:42px}
+.section-head h2 {font-size:clamp(34px,5vw,52px);margin:12px 0}
+.section-head p {color:var(--muted)}
+.intro {background:var(--cream);color:var(--navy)}
+.intro-grid {display:grid;grid-template-columns:1fr 1.2fr;gap:65px;align-items:center}
+.intro h2 {font-size:clamp(35px,5vw,54px);line-height:1.2}
+.intro p {color:#536071;margin-top:18px}
+.intro .eyebrow {color:#98633d}
+.intro-note {
+  border-left:2px solid var(--copper);
+  padding:12px 0 12px 25px;
+  font-size:19px;font-family:'Playfair Display',serif;
+}
+.projects {background:#111e2e}
+.filters {display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px}
+.filter {
+  padding:9px 17px;background:transparent;
+  border:1px solid #425164;color:#d8dee5;
+  cursor:pointer;font-size:12px;border-radius:30px;
+}
+.filter.active,.filter:hover {
+  background:var(--copper);border-color:var(--copper);color:#111b29;
+}
+.project-grid {display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.project {
+  background:#1a2a3d;border:1px solid rgba(255,255,255,.09);
+  overflow:hidden;transition:.3s;
+}
+.project:hover {transform:translateY(-6px);border-color:var(--copper)}
+.project-art {
+  height:235px;display:flex;align-items:center;
+  justify-content:center;text-align:center;padding:25px;
+  position:relative;overflow:hidden;
+}
+.project-art:before {
+  content:"";position:absolute;width:210px;height:210px;
+  border:1px solid rgba(255,255,255,.22);
+  transform:rotate(45deg);
+}
+.project-art span {
+  position:relative;font-family:'Playfair Display',serif;
+  font-size:clamp(24px,4vw,37px);letter-spacing:2px;
+}
+.art-aurelia {background:linear-gradient(135deg,#66513f,#c1a27b,#332b28)}
+.art-savannah {background:linear-gradient(135deg,#172c25,#78824c,#c39a5c)}
+.art-verdant {background:linear-gradient(135deg,#173a32,#6c8d61,#c4a66d)}
+.art-northstar {background:linear-gradient(135deg,#182b43,#536c81,#b1a28a)}
+.art-nyama {background:linear-gradient(135deg,#4d241c,#a95128,#d69a54)}
+.art-marlene {background:linear-gradient(135deg,#253c54,#54748b,#b6c5ce)}
+.project-info {padding:27px}
+.project-type {
+  color:var(--copper);font-size:10px;
+  letter-spacing:2px;text-transform:uppercase;font-weight:700;
+}
+.project h3 {font-size:27px;margin:9px 0}
+.project p {font-size:13px;color:var(--muted);min-height:65px}
+.project-bottom {
+  display:flex;justify-content:space-between;
+  align-items:center;gap:12px;margin-top:22px;
+  border-top:1px solid rgba(255,255,255,.12);padding-top:17px;
+}
+.project-bottom a {
+  color:var(--copper);font-size:11px;
+  font-weight:700;text-transform:uppercase;letter-spacing:1px;
+}
+.project-bottom a:hover {color:white}
+.project-note {font-size:10px;color:#aeb9c4}
+.services {background:var(--cream);color:var(--navy)}
+.services .eyebrow {color:#98633d}
+.service-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.service {
+  padding:30px 25px;border:1px solid #ded6c9;
+  min-height:220px;transition:.25s;
+}
+.service:hover {background:#fff;transform:translateY(-4px)}
+.service-number {color:#a66e46;font-size:12px;letter-spacing:2px}
+.service h3 {font-size:25px;margin:17px 0 10px}
+.service p {font-size:13px;color:#596574}
+.process {background:var(--navy2)}
+.process-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:30px}
+.process-item {border-top:1px solid var(--copper);padding-top:22px}
+.process-item span {color:var(--copper);font-size:12px;letter-spacing:2px}
+.process-item h3 {font-size:24px;margin:13px 0}
+.process-item p {font-size:13px;color:var(--muted)}
+.contact {
+  text-align:center;
+  background:radial-gradient(ellipse at center,#29394a,#101b2b 70%);
+}
+.contact h2 {font-size:clamp(38px,6vw,65px);margin:18px auto;max-width:760px}
+.contact p {color:var(--muted);max-width:560px;margin:0 auto}
+footer {
+  border-top:1px solid rgba(255,255,255,.1);
+  padding:25px 0;color:var(--muted);font-size:11px;
+}
+.footer-inner {display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap}
+.reveal {opacity:0;transform:translateY(20px);transition:.7s}
+.reveal.visible {opacity:1;transform:translateY(0)}
+@media(max-width:760px) {
+  .nav-links {
+    display:none;position:absolute;top:78px;left:0;right:0;
+    background:var(--navy);padding:25px;
+    flex-direction:column;gap:18px;
+  }
+  .nav-links.open {display:flex}
+  .menu-btn {display:block}
+  .hero {min-height:590px}
+  .intro-grid,.project-grid {grid-template-columns:1fr}
+  .service-grid,.process-grid {grid-template-columns:1fr}
+  section {padding:75px 0}
+  .project-art {height:205px}
+}
+@media(prefers-reduced-motion:reduce) {
+  *,*:before,*:after {scroll-behavior:auto!important;transition:none!important}
+}
+</style>
+</head>
+
+<body>
+<nav>
+  <div class="container nav-inner">
+    <a class="logo" href="#home">REMI <span>GACHOKI.</span></a>
+    <button class="menu-btn" id="menuBtn" aria-label="Open navigation">MENU</button>
+    <div class="nav-links" id="navLinks">
+      <a href="#about">ABOUT</a>
+      <a href="#work">PORTFOLIO</a>
+      <a href="#services">SERVICES</a>
+      <a href="#process">PROCESS</a>
+      <a href="#contact">CONTACT</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="container">
+    <div class="hero-content">
+      <div class="eyebrow">Independent web designer · Kenya</div>
+      <h1>Digital experiences<br>with <span>distinction.</span></h1>
+      <p>
+        I design refined, responsive websites that give ambitious
+        businesses a stronger digital presence. Thoughtful design,
+        clear communication and attention to detail.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#work">Explore my work</a>
+        <a class="btn" href="#contact">Start a conversation</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="intro" id="about">
+  <div class="container intro-grid">
+    <div>
+      <div class="eyebrow">The philosophy</div>
+      <h2>Design that makes a meaningful first impression.</h2>
+    </div>
+    <div>
+      <p>
+        A website should do more than look attractive. It should
+        communicate a brand's character, make information easy to
+        discover and help visitors take their next step.
+      </p>
+      <p>
+        My approach combines considered layouts, strong visual
+        identity, responsive experiences and purposeful content.
+        Every project begins with understanding the business
+        and the people it wants to reach.
+      </p>
+      <div class="intro-note">
+        Clear thinking. Considered design. Better digital experiences.
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="projects" id="work">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Selected work · Six projects</div>
+      <h2>A portfolio of possibilities.</h2>
+      <p>
+        A selection of website projects across hospitality,
+        property, construction, food and international trade.
+        Some are independent concept demonstrations.
+      </p>
+    </div>
+
+    <div class="filters" aria-label="Filter projects">
+      <button class="filter active" data-filter="all">All projects</button>
+      <button class="filter" data-filter="property">Property</button>
+      <button class="filter" data-filter="hospitality">Hospitality</button>
+      <button class="filter" data-filter="business">Business</button>
+      <button class="filter" data-filter="construction">Construction</button>
+    </div>
+
+    <div class="project-grid">
+
+      <article class="project reveal" data-category="property">
+        <div class="project-art art-aurelia">
+          <span>AURELIA ESTATES</span>
+        </div>
+        <div class="project-info">
+          <div class="project-type">Property · Concept demonstration</div>
+          <h3>Aurelia Estates</h3>
+          <p>
+            An elegant real estate concept focused on premium
+            presentation, property discovery and an elevated
+            residential brand experience.
+          </p>
+          <div class="project-bottom">
+            <a href="https://cyber-pizza-bluebird.wpcomstaging.com/?share=e3e2a53d37c7884089a48f4ac4cec237c6c6530e9536796345638235717da42b" target="_blank" rel="noopener">View preview ↗</a>
+            <span class="project-note">WordPress preview</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal" data-category="hospitality">
+        <div class="project-art art-savannah">
+          <span>SAVANNAH CROWN</span>
+        </div>
+        <div class="project-info">
+          <div class="project-type">Hospitality · Concept demonstration</div>
+          <h3>Savannah Crown Retreats</h3>
+          <p>
+            A luxury safari hospitality concept with an immersive
+            visual direction, destination storytelling and
+            guest-focused presentation.
+          </p>
+          <div class="project-bottom">
+            <a href="https://rainy-kingdom-taco.wpcomstaging.com/?share=30ef0ca80dc4f9aedcc17f536a26e99e7ea7d71a9bc616c496af8aac83cd2575" target="_blank" rel="noopener">View preview ↗</a>
+            <span class="project-note">WordPress preview</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal" data-category="business">
+        <div class="project-art art-verdant">
+          <span>VERDANT MERIDIAN</span>
+        </div>
+        <div class="project-info">
+          <div class="project-type">Agribusiness · Concept demonstration</div>
+          <h3>Verdant Meridian Exports</h3>
+          <p>
+            An international agribusiness concept designed to
+            communicate product categories, company identity
+            and a professional export-facing presence.
+          </p>
+          <div class="project-bottom">
+            <a href="https://sublime-peach-cupcake.wpcomstaging.com/?share=8438239ab008251b3734fcfb51dbe07056f8c0d4640b141bec4dd258fcd29694" target="_blank" rel="noopener">View preview ↗</a>
+            <span class="project-note">WordPress preview</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal" data-category="construction">
+        <div class="project-art art-northstar">
+          <span>NORTHSTAR ATELIER</span>
+        </div>
+        <div class="project-info">
+          <div class="project-type">Construction · Concept demonstration</div>
+          <h3>Northstar Atelier Construction</h3>
+          <p>
+            A construction and engineering concept with a
+            confident corporate identity, structured service
+            presentation and project-led storytelling.
+          </p>
+          <div class="project-bottom">
+            <a href="https://shiny-duck-heart.wpcomstaging.com/?share=fcaeb0cb5be3327346032c0df4d10a46fe3d2562ef6053f5f3d0d74a4f2051fb" target="_blank" rel="noopener">View preview ↗</a>
+            <span class="project-note">WordPress preview</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal" data-category="hospitality">
+        <div class="project-art art-nyama">
+          <span>NYAMA CHOMA VILLAGE</span>
+        </div>
+        <div class="project-info">
+          <div class="project-type">Food & hospitality · Website project</div>
+          <h3>Nyama Choma Village</h3>
+          <p>
+            A hospitality website concept presenting a distinctive
+            food destination through clear information,
+            welcoming visuals and accessible navigation.
+          </p>
+          <div class="project-bottom">
+            <a href="https://nyama-choma-village.netlify.app/" target="_blank" rel="noopener">Visit website ↗</a>
+            <span class="project-note">Netlify website</span>
+          </div>
+        </div>
+      </article>
+
+      <article class="project reveal" data-category="construction">
+        <div class="project-art art-marlene">
+          <span>MARLENE CONTRACTORS</span>
+        </div>
+        <div class="project-info">
+          <div class="project-type">Construction · Website project</div>
+          <h3>Marlene Contractors Limited</h3>
+          <p>
+            A professional contractor website concept built
+            around service communication, corporate presentation
+            and a clear digital identity.
+          </p>
+          <div class="project-bottom">
+            <a href="https://marlene-contractors.netlify.app/" target="_blank" rel="noopener">Visit website ↗</a>
+            <span class="project-note">Netlify website</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+    <p style="font-size:11px;color:#aeb9c4;margin-top:24px">
+      Portfolio note: The four WordPress projects are concept
+      demonstrations, not claims of commissioned client work.
+      All previews are subject to their hosting availability.
+    </p>
+  </div>
+</section>
+
+<section class="services" id="services">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">What I do</div>
+      <h2>Digital services with purpose.</h2>
+      <p>Practical website solutions shaped around each business and its goals.</p>
+    </div>
+    <div class="service-grid">
+      <article class="service">
+        <span class="service-number">01 / DESIGN</span>
+        <h3>Business Websites</h3>
+        <p>Professional website experiences that introduce your business and communicate what makes it distinct.</p>
+      </article>
+      <article class="service">
+        <span class="service-number">02 / TRANSFORMATION</span>
+        <h3>Website Redesign</h3>
+        <p>Modernise an existing website with clearer structure, refreshed visuals and a more coherent experience.</p>
+      </article>
+      <article class="service">
+        <span class="service-number">03 / EXPERIENCE</span>
+        <h3>Responsive Design</h3>
+        <p>Layouts designed to adapt across mobile phones, tablets and desktop screens.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="process">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">How I work</div>
+      <h2>A thoughtful process.</h2>
+      <p>A clear path from the first conversation to a considered website delivery.</p>
+    </div>
+    <div class="process-grid">
+      <article class="process-item">
+        <span>01 — DISCOVER</span>
+        <h3>Understand</h3>
+        <p>Clarify the business, audience, objectives, content and project requirements.</p>
+      </article>
+      <article class="process-item">
+        <span>02 — CREATE</span>
+        <h3>Design & develop</h3>
+        <p>Build the visual direction and website structure, then refine the responsive experience.</p>
+      </article>
+      <article class="process-item">
+        <span>03 — DELIVER</span>
+        <h3>Review & launch</h3>
+        <p>Review the work, check key pages and prepare the agreed website for launch.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="eyebrow">The next project</div>
+    <h2>Let's create something worth remembering.</h2>
+    <p>
+      Have a business website in mind, or an existing digital
+      presence that needs a fresh direction? Get in touch to
+      discuss the project and its requirements.
+    </p>
+    <div class="actions" style="justify-content:center">
+      <a class="btn primary" href="mailto:YOUR_EMAIL_ADDRESS">Discuss a project ↗</a>
+      <a class="btn" href="#work">Explore the portfolio</a>
+    </div>
+    <p style="font-size:11px;margin-top:18px">
+      Replace the email placeholder in this page with your chosen
+      professional contact address before publishing.
+    </p>
+  </div>
+</section>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© <span id="year"></span> REMI GACHOKI · DIGITAL EXPERIENCES</span>
+    <span>Designed with clarity and intention.</span>
+  </div>
+</footer>
+
+<script>
+document.getElementById("year").textContent = new Date().getFullYear();
+
+const menuBtn = document.getElementById("menuBtn");
+const navLinks = document.getElementById("navLinks");
+
+menuBtn.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});
+
+navLinks.querySelectorAll("a").forEach(link => {
+  link.addEventListener("click", () => navLinks.classList.remove("open"));
+});
+
+const filters = document.querySelectorAll(".filter");
+const projects = document.querySelectorAll(".project");
+
+filters.forEach(button => {
+  button.addEventListener("click", () => {
+    filters.forEach(item => item.classList.remove("active"));
+    button.classList.add("active");
+
+    const category = button.dataset.filter;
+
+    projects.forEach(project => {
+      project.style.display =
+        category === "all" || project.dataset.category === category
+        ? "block" : "none";
+    });
+  });
+});
+
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add("visible");
+      observer.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.12});
+
+document.querySelectorAll(
