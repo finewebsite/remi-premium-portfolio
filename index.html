@@ -1,682 +1,95 @@
-
-    <!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#101820">
-  <meta name="description" content="Remi Gachoki creates elegant, modern websites for businesses, brands and institutions.">
-  <title>Remi Gachoki | Digital Experiences with Distinction</title>
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    
-:root {
-  --ink: #171914;
-  --ink-soft: #24271f;
-  --cream: #f4f1e9;
-  --paper: #eae6dc;
-  --gold: #c5a36b;
-  --gold-light: #dfc69a;
-  --muted: #9b9a8e;
-  --line: rgba(255,255,255,.13);
-  --dark-line: rgba(23,25,20,.16);
-  --serif: "Playfair Display", Georgia, serif;
-  --sans: "DM Sans", sans-serif;
-  --display: "Manrope", sans-serif;
-}
-
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 90px; }
-body { background: var(--cream); color: var(--ink); font-family: var(--sans); -webkit-font-smoothing: antialiased; }
-a { color: inherit; text-decoration: none; }
-button, input, textarea, select { font: inherit; }
-.container { width: min(1160px, calc(100% - 64px)); margin: 0 auto; }
-.section-pad { padding: 125px 0; }
-
-/* Loader */
-.page-loader { position: fixed; inset: 0; z-index: 9999; display: grid; place-items: center; background: var(--ink); transition: opacity .6s ease, visibility .6s ease; }
-.page-loader.loaded { opacity: 0; visibility: hidden; }
-.loader-mark { color: var(--cream); font: 700 42px var(--display); letter-spacing: -4px; }
-.loader-mark span, .brand-mark span, .footer-brand span { color: var(--gold); }
-
-/* Header */
-.site-header { position: absolute; top: 0; left: 0; width: 100%; z-index: 100; border-bottom: 1px solid var(--line); }
-.nav-wrap { min-height: 88px; display: flex; align-items: center; justify-content: space-between; }
-.brand { display: flex; align-items: center; gap: 12px; color: var(--cream); }
-.brand-mark { font: 800 26px var(--display); letter-spacing: -3px; }
-.brand-name { font: 700 10px var(--display); letter-spacing: 1.5px; line-height: 1.6; }
-.brand-name small { display: block; color: var(--muted); font-size: 8px; letter-spacing: 1.6px; }
-.main-nav { display: flex; align-items: center; gap: 31px; }
-.main-nav a { color: #d2d0c7; font-size: 11px; transition: color .25s; }
-.main-nav a:hover { color: var(--gold-light); }
-.main-nav .nav-contact { border: 1px solid rgba(197,163,107,.6); padding: 13px 17px; color: var(--gold-light); }
-.nav-contact span { margin-left: 8px; }
-.menu-toggle { display: none; }
-
-/* Hero */
-.hero { position: relative; min-height: 790px; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding: 145px 0 85px; background: var(--ink); color: var(--cream); }
-.hero:before { content: ""; position: absolute; width: 650px; height: 650px; border-radius: 50%; right: -170px; top: 70px; background: radial-gradient(circle, rgba(197,163,107,.11), transparent 68%); }
-.hero-grain { position: absolute; inset: 0; opacity: .13; pointer-events: none; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.2'/%3E%3C/svg%3E"); }
-.hero-layout { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr .9fr; align-items: center; gap: 55px; }
-.eyebrow, .section-kicker { font-size: 9px; letter-spacing: 2.2px; font-weight: 700; }
-.eyebrow { display: flex; align-items: center; gap: 12px; color: var(--gold-light); margin-bottom: 32px; }
-.eyebrow-line { display: inline-block; width: 32px; height: 1px; background: var(--gold); }
-.hero h1 { font: 500 clamp(55px, 6.6vw, 88px)/1.04 var(--serif); letter-spacing: -3px; }
-.hero h1 em, h2 em, .intro-statement em { color: var(--gold); font-weight: 500; }
-.hero-description { max-width: 450px; color: #b8b8ae; font-size: 14px; line-height: 1.9; margin-top: 28px; }
-.hero-actions { display: flex; align-items: center; gap: 30px; margin-top: 37px; }
-.button { min-height: 51px; display: inline-flex; align-items: center; justify-content: center; gap: 24px; padding: 0 22px; border: 1px solid transparent; font-size: 10px; font-weight: 700; letter-spacing: .5px; cursor: pointer; transition: .3s ease; }
-.button-gold { background: var(--gold); color: #171914; }
-.button-gold:hover { background: var(--gold-light); transform: translateY(-3px); }
-.button span { font-size: 15px; }
-.text-link { color: var(--cream); font-size: 11px; }
-.text-link span { color: var(--gold); margin-left: 8px; }
-.hero-footnote { margin-top: 62px; display: flex; align-items: center; gap: 10px; color: var(--muted); font-size: 8px; letter-spacing: 1.6px; }
-.availability-dot { width: 7px; height: 7px; background: #8ca77c; border-radius: 50%; box-shadow: 0 0 12px rgba(140,167,124,.7); }
-
-/* Hero artwork */
-.hero-art { min-height: 455px; position: relative; display: grid; place-items: center; }
-.art-frame { position: relative; width: min(100%, 390px); height: 430px; border: 1px solid rgba(197,163,107,.5); padding: 20px; background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.005)); }
-.art-topline, .art-bottomline { display: flex; justify-content: space-between; color: var(--gold-light); font-size: 8px; letter-spacing: 1.5px; }
-.art-bottomline { position: absolute; bottom: 20px; left: 20px; right: 20px; color: var(--muted); }
-.art-arch { position: absolute; width: 185px; height: 260px; border: 1px solid rgba(197,163,107,.55); border-bottom: 0; border-radius: 100px 100px 0 0; left: 50%; top: 75px; transform: translateX(-50%); }
-.art-arch:after { content: ""; position: absolute; inset: 14px 14px 0; border: 1px solid rgba(197,163,107,.2); border-bottom: 0; border-radius: 100px 100px 0 0; }
-.art-center { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding-top: 35px; }
-.art-small { color: var(--gold-light); font-size: 8px; letter-spacing: 2px; margin-bottom: 14px; }
-.art-large { color: var(--cream); font: 500 45px/.98 var(--serif); }
-.art-large i { color: var(--gold); }
-.art-orbit { position: absolute; border: 1px solid rgba(197,163,107,.13); border-radius: 50%; }
-.orbit-one { width: 460px; height: 460px; }
-.orbit-two { width: 540px; height: 540px; }
-.art-stamp { position: absolute; right: -2px; bottom: 12px; width: 65px; height: 65px; display: grid; place-content: center; border-radius: 50%; background: var(--gold); color: var(--ink); text-align: center; font-size: 9px; line-height: 1.4; font-weight: 700; letter-spacing: 1px; transform: rotate(12deg); }
-.hero-bottom { position: absolute; bottom: 25px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 16px; color: var(--muted); font-size: 8px; letter-spacing: 1.5px; }
-.scroll-line { width: 50px; height: 1px; background: var(--gold); }
-
-/* Intro */
-.intro-section { background: var(--cream); }
-.intro-grid { display: grid; grid-template-columns: .65fr 1.35fr; gap: 60px; }
-.section-kicker { color: #8b795b; padding-top: 10px; }
-.intro-statement { max-width: 800px; font: 500 clamp(34px, 4.4vw, 58px)/1.2 var(--serif); letter-spacing: -1.2px; }
-.intro-statement em { color: #9c7d4b; }
-.intro-bottom { margin-top: 38px; padding-top: 25px; border-top: 1px solid var(--dark-line); display: flex; justify-content: space-between; align-items: flex-end; gap: 35px; }
-.intro-bottom p { max-width: 490px; color: #68685f; font-size: 13px; line-height: 1.9; }
-.underlined-link { white-space: nowrap; padding-bottom: 7px; border-bottom: 1px solid var(--gold); font-size: 10px; font-weight: 700; }
-.underlined-link span { color: #9c7d4b; margin-left: 9px; }
-
-/* Work */
-.work-section { background: #e9e5db; }
-.section-heading { display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; margin-bottom: 65px; }
-.section-heading h2, .approach-intro h2, .contact-copy h2 { margin-top: 22px; font: 500 clamp(42px, 5vw, 64px)/1.08 var(--serif); letter-spacing: -1.8px; }
-.section-heading h2 em, .approach-intro h2 em { color: #9c7d4b; }
-.heading-note { max-width: 290px; color: #77766c; font-size: 12px; line-height: 1.8; padding-bottom: 7px; }
-.project-toolbar { display: flex; justify-content: space-between; border-top: 1px solid var(--dark-line); border-bottom: 1px solid var(--dark-line); padding: 13px 0; margin-bottom: 25px; color: #77766c; font-size: 8px; letter-spacing: 1.6px; }
-.project-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 46px 25px; }
-.project-card { display: block; min-width: 0; }
-.project-featured { grid-column: span 2; }
-.project-wide { grid-column: span 2; }
-.project-image { position: relative; min-height: 300px; overflow: hidden; display: flex; align-items: center; justify-content: center; isolation: isolate; transition: transform .5s; }
-.project-featured .project-image { min-height: 410px; }
-.project-wide .project-image { min-height: 360px; }
-.project-card:hover .project-image { transform: translateY(-4px); }
-.project-image:before { content: ""; position: absolute; inset: 0; z-index: -1; transition: transform .8s; }
-.project-card:hover .project-image:before { transform: scale(1.05); }
-.image-construction:before { background: linear-gradient(120deg,#3d4945,#879083 55%,#c4b69d); }
-.image-hotel:before { background: linear-gradient(135deg,#3d2824,#916f56 55%,#c4a986); }
-.image-funpark:before { background: linear-gradient(135deg,#283d3c,#53756b 55%,#c9a875); }
-.image-food:before { background: linear-gradient(135deg,#37271e,#80533a 55%,#c29a65); }
-.image-villa:before { background: linear-gradient(120deg,#293c35,#6d806d 55%,#b5a98a); }
-.project-image-label { position: absolute; top: 20px; left: 22px; color: rgba(255,255,255,.78); font-size: 8px; letter-spacing: 1.7px; }
-.project-open { position: absolute; right: 20px; bottom: 20px; width: 40px; height: 40px; display: grid; place-items: center; border: 1px solid rgba(255,255,255,.55); color: white; border-radius: 50%; font-size: 18px; transition: .3s; }
-.project-card:hover .project-open { background: var(--gold); color: var(--ink); border-color: var(--gold); transform: rotate(45deg); }
-.mockup-window { width: 67%; min-height: 255px; background: #e8e4d9; box-shadow: 0 25px 60px rgba(0,0,0,.2); transform: rotate(-2deg); }
-.mockup-bar { height: 22px; background: #d5d0c4; display: flex; gap: 5px; align-items: center; padding-left: 12px; }
-.mockup-bar i { width: 5px; height: 5px; background: #8b8a7e; border-radius: 50%; }
-.mockup-content { min-height: 230px; padding: 35px; display: flex; flex-direction: column; justify-content: center; color: #252c28; }
-.mockup-content span { font: 700 10px var(--display); letter-spacing: 3px; }
-.mockup-content strong { margin: 18px 0; font: 700 clamp(26px,4vw,48px)/.98 var(--display); letter-spacing: -2px; }
-.mockup-content small { font-size: 7px; letter-spacing: 1.8px; }
-.hotel-preview, .funpark-preview, .food-preview, .villa-preview { width: 80%; text-align: center; color: white; text-shadow: 0 2px 18px rgba(0,0,0,.3); }
-.hotel-preview span, .funpark-preview span, .food-preview span, .villa-preview span { font-size: 8px; letter-spacing: 3px; }
-.hotel-preview strong, .funpark-preview strong, .food-preview strong, .villa-preview strong { display: block; margin: 20px 0; font: 500 clamp(32px,5vw,57px)/1 var(--serif); letter-spacing: -1px; }
-.hotel-preview small, .funpark-preview small, .food-preview small, .villa-preview small { font-size: 8px; letter-spacing: 2px; }
-.funpark-preview strong, .food-preview strong { font-family: var(--display); font-weight: 800; letter-spacing: -2px; }
-.villa-preview strong { font-style: italic; }
-.project-info { display: flex; justify-content: space-between; align-items: flex-start; padding-top: 18px; }
-.project-info h3 { font: 600 17px var(--display); letter-spacing: -.4px; }
-.project-info p { margin-top: 6px; color: #77766c; font-size: 11px; }
-.project-number { color: #9b8b6c; font: 500 12px var(--display); }
-.work-footnote { display: flex; justify-content: space-between; margin-top: 70px; padding-top: 18px; border-top: 1px solid var(--dark-line); color: #858276; font-size: 8px; letter-spacing: 1.5px; }
-
-/* Services */
-.services-section { background: var(--ink); color: var(--cream); }
-.services-section .section-kicker, .approach-section .section-kicker, .contact-section .section-kicker { color: var(--gold); }
-.services-section .section-heading h2 em, .contact-copy h2 em { color: var(--gold); }
-.services-section .heading-note { color: #aaa99e; }
-.services-list { border-top: 1px solid var(--line); }
-.service-row { display: grid; grid-template-columns: 65px 1fr 35px; align-items: center; gap: 25px; padding: 30px 0; border-bottom: 1px solid var(--line); transition: padding .3s; }
-.service-row:hover { padding-left: 10px; }
-.service-index { align-self: start; padding-top: 5px; color: var(--gold); font-size: 10px; }
-.service-row h3 { font: 500 21px var(--display); }
-.service-row p { max-width: 560px; margin-top: 8px; color: #a8a89e; font-size: 12px; line-height: 1.8; }
-.service-arrow { color: var(--gold); font-size: 20px; }
-
-/* Approach */
-.approach-section { background: var(--paper); }
-.approach-grid { display: grid; grid-template-columns: .9fr 1.1fr; gap: 100px; }
-.approach-intro h2 em { display: inline-block; }
-.approach-intro > p { max-width: 340px; margin-top: 28px; color: #77766c; font-size: 13px; line-height: 1.9; }
-.process-list { border-top: 1px solid var(--dark-line); }
-.process-item { display: grid; grid-template-columns: 45px 1fr; gap: 20px; padding: 25px 0; border-bottom: 1px solid var(--dark-line); }
-.process-item > span { color: #9c7d4b; font-size: 10px; padding-top: 4px; }
-.process-item h3 { font: 600 17px var(--display); }
-.process-item p { max-width: 430px; margin-top: 8px; color: #77766c; font-size: 12px; line-height: 1.8; }
-
-/* Contact */
-.contact-section { background: #20231d; color: var(--cream); }
-.contact-grid { display: grid; grid-template-columns: 1fr .85fr; gap: 100px; }
-.contact-copy h2 { font-size: clamp(48px,5.5vw,72px); }
-.contact-copy > p { max-width: 390px; margin-top: 25px; color: #aaa99e; font-size: 13px; line-height: 1.9; }
-.contact-direct { display: grid; gap: 10px; margin-top: 55px; }
-.contact-direct span { margin-top: 13px; color: var(--gold); font-size: 8px; letter-spacing: 1.7px; }
-.contact-direct a { width: fit-content; color: var(--cream); font-size: 13px; }
-.contact-direct a:hover { color: var(--gold-light); }
-.contact-form { padding: 32px; background: #292c25; border: 1px solid var(--line); }
-.contact-form label { display: block; margin: 18px 0 9px; color: var(--gold-light); font-size: 8px; letter-spacing: 1.4px; }
-.contact-form label:first-child { margin-top: 0; }
-.contact-form input, .contact-form select, .contact-form textarea { width: 100%; border: 0; border-bottom: 1px solid rgba(255,255,255,.2); border-radius: 0; outline: 0; background: transparent; color: var(--cream); padding: 12px 0; font-size: 12px; }
-.contact-form input:focus, .contact-form select:focus, .contact-form textarea:focus { border-color: var(--gold); }
-.contact-form input::placeholder, .contact-form textarea::placeholder { color: #85867d; }
-.contact-form select { color: #aaa99e; }
-.contact-form select option { color: var(--ink); }
-.contact-form textarea { resize: vertical; min-height: 95px; }
-.form-submit { width: 100%; margin-top: 25px; }
-.form-note { margin-top: 13px; color: #93948a; font-size: 9px; line-height: 1.6; text-align: center; }
-
-/* Footer */
-.site-footer { background: #12140f; color: var(--cream); padding: 35px 0 22px; }
-.footer-top, .footer-bottom { display: flex; justify-content: space-between; align-items: center; }
-.footer-top { padding-bottom: 32px; }
-.footer-brand { font: 700 17px var(--display); letter-spacing: 1px; }
-.back-top { color: var(--gold); font-size: 8px; letter-spacing: 1.5px; }
-.footer-bottom { padding-top: 20px; border-top: 1px solid var(--line); color: #88897f; font-size: 8px; letter-spacing: 1px; }
-
-/* Motion */
-.reveal { opacity: 0; transform: translateY(22px); transition: opacity .7s ease, transform .7s ease; }
-.reveal.visible { opacity: 1; transform: translateY(0); }
-
-@media (max-width: 900px) {
-  .main-nav { gap: 18px; }
-  .main-nav a { font-size: 10px; }
-  .hero-layout { gap: 25px; }
-  .hero-art { transform: scale(.9); }
-  .approach-grid, .contact-grid { gap: 55px; }
-}
-
-@media (max-width: 700px) {
-  .container { width: min(100% - 40px, 560px); }
-  .section-pad { padding: 85px 0; }
-  .nav-wrap { min-height: 75px; }
-  .menu-toggle { display: flex; flex-direction: column; justify-content: center; gap: 6px; width: 42px; height: 42px; border: 1px solid var(--line); background: transparent; cursor: pointer; }
-  .menu-toggle span { width: 18px; height: 1px; margin: 0 auto; background: var(--cream); transition: .3s; }
-  .menu-toggle.active span:first-child { transform: translateY(3.5px) rotate(45deg); }
-  .menu-toggle.active span:last-child { transform: translateY(-3.5px) rotate(-45deg); }
-  .main-nav { position: absolute; top: 74px; left: 0; right: 0; display: flex; flex-direction: column; align-items: stretch; gap: 0; padding: 12px 22px 22px; background: #171914; border-bottom: 1px solid var(--line); opacity: 0; visibility: hidden; transform: translateY(-8px); transition: .25s; }
-  .main-nav.open { opacity: 1; visibility: visible; transform: translateY(0); }
-  .main-nav a { padding: 15px 3px; border-bottom: 1px solid var(--line); font-size: 12px; }
-  .main-nav .nav-contact { margin-top: 12px; padding: 14px; border: 1px solid rgba(197,163,107,.6); text-align: center; }
-  .hero { min-height: auto; padding: 140px 0 95px; }
-  .hero-layout { grid-template-columns: 1fr; gap: 30px; }
-  .hero h1 { font-size: clamp(53px, 13vw, 75px); letter-spacing: -2.5px; }
-  .hero-description { font-size: 13px; }
-  .hero-footnote { margin-top: 38px; }
-  .hero-art { min-height: 360px; transform: none; }
-  .art-frame { width: 290px; height: 340px; }
-  .art-arch { height: 215px; width: 155px; top: 65px; }
-  .art-large { font-size: 38px; }
-  .orbit-one { width: 340px; height: 340px; }
-  .orbit-two { width: 390px; height: 390px; }
-  .art-stamp { right: 5px; bottom: 0; }
-  .hero-bottom { bottom: 22px; }
-  .intro-grid { grid-template-columns: 1fr; gap: 25px; }
-  .intro-statement { font-size: 37px; }
-  .intro-bottom { align-items: flex-start; flex-direction: column; gap: 22px; }
-  .section-heading { display: block; margin-bottom: 40px; }
-  .section-heading h2, .approach-intro h2 { font-size: 48px; }
-  .heading-note { margin-top: 22px; }
-  .project-grid { grid-template-columns: 1fr; gap: 35px; }
-  .project-featured, .project-wide { grid-column: auto; }
-  .project-image, .project-featured .project-image, .project-wide .project-image { min-height: 270px; }
-  .mockup-window { width: 82%; }
-  .mockup-content { padding: 22px; }
-  .project-toolbar, .work-footnote { font-size: 7px; gap: 15px; }
-  .work-footnote { flex-direction: column; }
-  .service-row { grid-template-columns: 30px 1fr 20px; gap: 12px; padding: 24px 0; }
-  .service-row h3 { font-size: 16px; }
-  .service-row p { font-size: 11px; }
-  .approach-grid, .contact-grid { grid-template-columns: 1fr; gap: 45px; }
-  .contact-form { padding: 23px; }
-  .footer-top, .footer-bottom { align-items: flex-start; flex-direction: column; gap: 17px; }
-  .footer-bottom { font-size: 7px; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  *, *:before, *:after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
-  .reveal { opacity: 1; transform: none; }
-          }
-      
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Selected website design concepts by Remi Gachoki, Kenya.">
+<title>Remi Gachoki | Web Design Portfolio</title>
+<style>
+:root{--ink:#17231f;--muted:#68756f;--paper:#f5f6f2;--white:#fff;--accent:#b56b43;--line:#dfe4dc}
+*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.65 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:inherit}.wrap{max-width:1060px;margin:auto;padding:28px 22px 64px}
+header{padding:54px 0 38px;border-bottom:1px solid var(--line)}
+.kicker{text-transform:uppercase;letter-spacing:.16em;font-size:.75rem;font-weight:700;color:var(--accent)}
+h1{font-size:clamp(2.5rem,7vw,5rem);line-height:1.02;letter-spacing:-.055em;margin:14px 0}
+.lead{max-width:650px;color:var(--muted);font-size:1.12rem}
+.contact{display:flex;flex-wrap:wrap;gap:10px 24px;margin-top:25px;font-weight:600}
+h2{font-size:1.8rem;letter-spacing:-.035em;margin:42px 0 8px}
+.intro{color:var(--muted);margin:0 0 22px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:18px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:25px;display:flex;flex-direction:column;min-height:310px}
+.num{color:var(--accent);font-weight:800;font-size:.8rem;letter-spacing:.12em}
+.card h3{font-size:1.4rem;line-height:1.2;margin:12px 0 4px}
+.type{color:var(--muted);font-size:.9rem;font-weight:600}
+.card p{color:#4d5b54}
+.link{display:inline-flex;align-self:flex-start;margin-top:auto;padding:11px 16px;background:var(--ink);color:white;text-decoration:none;border-radius:999px;font-weight:700}
+.note{font-size:.86rem!important;background:#f7f3ed;border-left:3px solid var(--accent);padding:12px 14px;border-radius:4px}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:18px}
+.service{padding:17px;border:1px solid var(--line);border-radius:14px;background:#fff;font-weight:650}
+footer{margin-top:48px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}
+@media(max-width:600px){.wrap{padding:16px}header{padding-top:38px}}
+</style>
 </head>
-<body>
+<body><main class="wrap">
+<header>
+<div class="kicker">Web design & development · Kenya</div>
+<h1>Remi Gachoki</h1>
+<p class="lead">I create clear, modern website experiences that help businesses present their services, tell their story and make it easier for customers to get in touch.</p>
+<div class="contact">
+<a href="mailto:remigachoki@gmail.com">remigachoki@gmail.com</a>
+<a href="tel:+254759119195">+254 759 119 195</a>
+<span>Kenya</span>
+</div>
+</header>
+<section>
+<h2>Selected website concepts</h2>
+<p class="intro">A selection of live website demonstrations showing different business-focused layouts and user journeys.</p>
+<div class="grid">
 
-  <div class="announcement">
-    INDEPENDENT WEB DESIGNER · KENYA
-  </div>
+<article class="card">
+<div class="num">PROJECT 01</div>
+<h3>Nyama Choma Village</h3>
+<div class="type">Hospitality website concept</div>
+<p>A hospitality-focused website concept for a Nyeri-based dining and accommodation business. It presents the dining experience, a provisional menu preview, accommodation enquiries and location information.</p>
+<p class="note">Some images and business details are marked as illustrative or awaiting confirmation. The live concept should be reviewed and approved by the business before any public use.</p>
+<a class="link" href="https://nyama-choma-village.netlify.app/" target="_blank" rel="noopener">View live concept ↗</a>
+</article>
 
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="#home" class="brand">REMI <span>GACHOKI.</span></a>
+<article class="card">
+<div class="num">PROJECT 02</div>
+<h3>Marlene Contractors Limited</h3>
+<div class="type">Construction company website concept</div>
+<p>A corporate website concept presenting construction and project-delivery services, company information, service categories, a project-gallery layout and enquiry pathways.</p>
+<p class="note">Project imagery is illustrative and service details require company confirmation. This is a demonstration concept, not a claim of commissioned client work.</p>
+<a class="link" href="https://marlene-contractors.netlify.app/" target="_blank" rel="noopener">View live concept ↗</a>
+</article>
 
-      <button class="menu-toggle" id="menuToggle"
-        aria-label="Toggle navigation" aria-expanded="false">
-        <span></span><span></span><span></span>
-      </button>
+<article class="card">
+<div class="num">PROJECT 03</div>
+<h3>Gachoki Technical Institute</h3>
+<div class="type">Technical and academic institution website concept</div>
+<p>A multi-page institutional website concept featuring an academic-style homepage, institutional profile, programme areas, admissions guidance, student experience information and contact pathways.</p>
+<p class="note">This is an independent demonstration concept, not a commissioned or institution-approved website. Programme areas and institutional details are illustrative and require verification. The preview link is temporary.</p>
+<a class="link" href="https://perfect-beard-object.wpcomstaging.com/?share=439f49d868c135d9e441716840c167d7a81275e4aaa7b78ec360ba48deb194a8" target="_blank" rel="noopener">View website concept ↗</a>
+</article>
 
-      <nav class="main-nav" id="mainNav">
-        <a href="#home">Home</a>
-        <a href="#about">About</a>
-        <a href="#portfolio">Portfolio</a>
-        <a href="#services">Services</a>
-        <a href="#process">Process</a>
-        <a href="#contact" class="nav-cta">Let's Talk</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-glow"></div>
-      <div class="container hero-grid">
-        <div class="hero-content reveal">
-          <p class="eyebrow"><span></span> DIGITAL DESIGN & DEVELOPMENT</p>
-          <h1>Digital experiences<br>with <em>distinction.</em></h1>
-
-          <p class="hero-description">
-            I create elegant, modern and purposeful websites that help
-            businesses, brands and institutions establish a powerful
-            presence online.
-          </p>
-
-          <div class="hero-actions">
-            <a href="#portfolio" class="btn btn-gold">Explore My Work <span>↗</span></a>
-            <a href="#contact" class="btn btn-outline">Start a Project</a>
-          </div>
-
-          <div class="hero-note">
-            <span class="note-line"></span>
-            Thoughtful design. Meaningful digital experiences.
-          </div>
-        </div>
-
-        <div class="hero-visual reveal">
-          <div class="visual-frame">
-            <div class="visual-top">
-              <span>RG / CREATIVE STUDIO</span>
-              <span>EST. 2026</span>
-            </div>
-
-            <div class="visual-center">
-              <div class="visual-circle"><span>R</span></div>
-              <p>DESIGN WITH PURPOSE</p>
-              <h2>Ideas into<br><em>experiences.</em></h2>
-            </div>
-
-            <div class="visual-bottom">
-              <span>WEB DESIGN</span>
-              <span>DEVELOPMENT</span>
-              <span>STRATEGY</span>
-            </div>
-          </div>
-          <div class="visual-caption">INDEPENDENT DIGITAL DESIGNER · KENYA</div>
-        </div>
-      </div>
-
-      <div class="hero-scroll">
-        <span></span> SCROLL TO EXPLORE
-      </div>
-    </section>
-
-    <section class="intro-strip">
-      <div class="container intro-inner">
-        <p>CREATIVE THINKING</p><span>✦</span>
-        <p>MODERN DEVELOPMENT</p><span>✦</span>
-        <p>BUSINESS-FOCUSED DESIGN</p><span>✦</span>
-        <p>DIGITAL EXCELLENCE</p>
-      </div>
-    </section>
-
-    <section class="section about-section" id="about">
-      <div class="container about-grid">
-        <div class="section-heading reveal">
-          <p class="eyebrow dark-eyebrow">01 / ABOUT</p>
-          <h2>Designing with<br><em>intention.</em></h2>
-        </div>
-
-        <div class="about-copy reveal">
-          <p class="lead">
-            A website should do more than look attractive.
-            It should communicate value, build confidence and
-            make it easier for people to connect with a business.
-          </p>
-
-          <p>
-            I am an independent web designer focused on creating
-            digital experiences for businesses, hospitality brands,
-            property ventures and educational institutions.
-          </p>
-
-          <p>
-            My approach combines thoughtful visual design,
-            practical functionality and clear communication
-            to create websites with a purpose.
-          </p>
-
-          <a href="#contact" class="text-link">Discuss a project <span>↗</span></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section portfolio-section" id="portfolio">
-      <div class="container">
-        <div class="portfolio-heading reveal">
-          <div>
-            <p class="eyebrow dark-eyebrow">02 / SELECTED WORK</p>
-            <h2>Selected <em>projects.</em></h2>
-          </div>
-
-          <p class="portfolio-intro">
-            A collection of website projects and digital concepts
-            created for different industries.
-          </p>
-        </div>
-
-        <div class="project-filters reveal">
-          <button class="filter-btn active" data-filter="all">All Projects</button>
-          <button class="filter-btn" data-filter="construction">Construction</button>
-          <button class="filter-btn" data-filter="hospitality">Hospitality</button>
-          <button class="filter-btn" data-filter="food">Food & Dining</button>
-          <button class="filter-btn" data-filter="education">Education</button>
-        </div>                      
-
-        <div class="project-grid">
-          <a class="project-card project-featured reveal" href="https://marlene-contractors.netlify.app/" target="_blank" rel="noopener noreferrer">
-            <div class="project-image image-construction">
-              <div class="project-image-label">01 / CONSTRUCTION</div>
-              <div class="mockup-window">
-                <div class="mockup-bar"><i></i><i></i><i></i></div>
-                <div class="mockup-content">
-                  <span>MARLENE</span>
-                  <strong>BUILDING<br>WITH PURPOSE.</strong>
-                  <small>CONSTRUCTION · QUALITY · TRUST</small>
-                </div>
-              </div>
-              <span class="project-open">↗</span>
-            </div>
-            <div class="project-info">
-              <div><h3>Marlene Contractors</h3><p>Corporate website · Construction</p></div>
-              <span class="project-number">01</span>
-            </div>
-          </a>
-
-          <a class="project-card reveal" href="https://candela-hotel-website.netlify.app/" target="_blank" rel="noopener noreferrer">
-            <div class="project-image image-hotel">
-              <div class="project-image-label">02 / HOSPITALITY</div>
-              <div class="hotel-preview">
-                <span>CANDELA</span>
-                <strong>A stay<br>to remember.</strong>
-                <small>HOSPITALITY & EXPERIENCE</small>
-              </div>
-              <span class="project-open">↗</span>
-            </div>
-            <div class="project-info">
-              <div><h3>Candela Hotel</h3><p>Hospitality website · Hotel</p></div>
-              <span class="project-number">02</span>
-            </div>
-          </a>
-
-          <a class="project-card reveal" href="https://mombasa-ndogo.netlify.app/" target="_blank" rel="noopener noreferrer">
-            <div class="project-image image-funpark">
-              <div class="project-image-label">03 / LEISURE & DINING</div>
-              <div class="funpark-preview">
-                <span>WELCOME TO</span>
-                <strong>MOMBASA<br>NDOGO</strong>
-                <small>FOOD · FAMILY · FUN</small>
-              </div>
-              <span class="project-open">↗</span>
-            </div>
-            <div class="project-info">
-              <div><h3>Mombasa Ndogo Funpark</h3><p>Business website · Entertainment</p></div>
-              <span class="project-number">03</span>
-            </div>
-          </a>
-
-          <a class="project-card reveal" href="https://nyama-choma-village.netlify.app/" target="_blank" rel="noopener noreferrer">
-            <div class="project-image image-food">
-              <div class="project-image-label">04 / FOOD & DINING</div>
-              <div class="food-preview">
-                <span>THE ART OF GOOD FOOD</span>
-                <strong>NYAMA CHOMA<br>VILLAGE</strong>
-                <small>GREAT FOOD. GOOD COMPANY.</small>
-              </div>
-              <span class="project-open">↗</span>
-            </div>
-            <div class="project-info">
-              <div><h3>Nyama Choma Village</h3><p>Restaurant website · Dining</p></div>
-              <span class="project-number">04</span>
-            </div>
-          </a>
-
-          <a class="project-card project-wide reveal" href="https://giakanja-villa.netlify.app/" target="_blank" rel="noopener noreferrer">
-            <div class="project-image image-villa">
-              <div class="project-image-label">05 / PROPERTY & STAYS</div>
-              <div class="villa-preview">
-                <span>YOUR PRIVATE ESCAPE</span>
-                <strong>GIაკANJA<br>VILLA</strong>
-                <small>COMFORT · SPACE · SERENITY</small>
-              </div>
-              <span class="project-open">↗</span>
-            </div>
-            <div class="project-info">
-              <div><h3>Giakanja Villa</h3><p>Property website · Accommodation</p></div>
-              <span class="project-number">05</span>
-            </div>
-          </a>
-        </div>
-
-        <div class="work-footnote">
-          <span>FIVE PROJECTS. ONE COMMITMENT TO QUALITY.</span>
-          <span>SELECT A PROJECT TO EXPLORE ↗</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="services-section section-pad" id="services">
-      <div class="container">
-        <div class="section-heading">
-          <div>
-            <div class="section-kicker">03 / WHAT I DO</div>
-            <h2>Digital solutions,<br><em>thoughtfully made.</em></h2>
-          </div>
-          <p class="heading-note">The right digital foundation can change how people discover, understand and engage with your business.</p>
-        </div>
-
-        <div class="services-list">
-          <article class="service-row reveal">
-            <span class="service-index">01</span>
-            <div><h3>Website Design & Development</h3><p>Professional, responsive websites designed around your brand, audience and business goals.</p></div>
-            <span class="service-arrow">↗</span>
-          </article>
-          <article class="service-row reveal">
-            <span class="service-index">02</span>
-            <div><h3>Business & Institutional Websites</h3><p>Clear, credible digital platforms for companies, schools, organisations and growing institutions.</p></div>
-            <span class="service-arrow">↗</span>
-          </article>
-          <article class="service-row reveal">
-            <span class="service-index">03</span>
-            <div><h3>Website Redesign & Improvement</h3><p>Modernise an existing website with improved structure, usability, visual consistency and mobile experience.</p></div>
-            <span class="service-arrow">↗</span>
-          </article>
-          <article class="service-row reveal">
-            <span class="service-index">04</span>
-            <div><h3>Landing Pages & Digital Presence</h3><p>Focused pages that introduce your offer, communicate value and make it easier for visitors to take action.</p></div>
-            <span class="service-arrow">↗</span>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="approach-section section-pad" id="process">
-      <div class="container approach-grid">
-        <div class="approach-intro">
-          <div class="section-kicker">04 / THE APPROACH</div>
-          <h2>Good work<br>starts with<br><em>good thinking.</em></h2>
-          <p>Every project follows a considered process, keeping communication clear and the outcome aligned with your goals.</p>
-        </div>
-        <div class="process-list">
-          <article class="process-item reveal"><span>01</span><div><h3>Discover</h3><p>Understand your business, audience, goals and the purpose of the website.</p></div></article>
-          <article class="process-item reveal"><span>02</span><div><h3>Plan & Design</h3><p>Shape the structure, visual direction and experience before development.</p></div></article>
-          <article class="process-item reveal"><span>03</span><div><h3>Build & Refine</h3><p>Develop the website, review the details and refine the experience across devices.</p></div></article>
-          <article class="process-item reveal"><span>04</span><div><h3>Launch</h3><p>Prepare the finished website for launch and provide a clear handover.</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="contact-section section-pad" id="contact">
-      <div class="container contact-grid">
-        <div class="contact-copy">
-          <div class="section-kicker">05 / START A CONVERSATION</div>
-          <h2>Have a project<br>in <em>mind?</em></h2>
-          <p>Let's discuss what you're building and how a considered digital experience can help move it forward.</p>
-          <div class="contact-direct">
-            <span>EMAIL</span>
-            <a href="mailto:remigachoki@gmail.com">remigachoki@gmail.com ↗</a>
-            <span>PHONE / WHATSAPP</span>
-            <a href="https://wa.me/254759119195" target="_blank" rel="noopener noreferrer">+254 759 119 195 ↗</a>
-          </div>
-        </div>
-
-        <form class="contact-form" id="contactForm">
-          <label for="visitorName">YOUR NAME</label>
-          <input id="visitorName" name="name" type="text" placeholder="How should I address you?" required>
-
-          <label for="visitorEmail">EMAIL ADDRESS</label>
-          <input id="visitorEmail" name="email" type="email" placeholder="you@example.com" required>
-
-          <label for="projectType">WHAT DO YOU HAVE IN MIND?</label>
-          <select id="projectType" name="project" required>
-            <option value="" disabled selected>Select a project type</option>
-            <option>Business website</option>
-            <option>Institutional website</option>
-            <option>Website redesign</option>
-            <option>Landing page</option>
-            <option>Other enquiry</option>
-          </select>
-
-          <label for="projectMessage">TELL ME A LITTLE ABOUT IT</label>
-          <textarea id="projectMessage" name="message" rows="4" placeholder="A few details about your project..." required></textarea>
-
-          <button class="button button-gold form-submit" type="submit">Send enquiry <span>↗</span></button>
-          <p class="form-note">Your email application will open with your enquiry ready to send.</p>
-        </form>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-top">
-      <a class="footer-brand" href="#home">REMI GACHOKI<span>.</span></a>
-      <a class="back-top" href="#top">BACK TO TOP ↑</a>
-    </div>
-    <div class="container footer-bottom">
-      <span>INDEPENDENT WEB DESIGNER & DEVELOPER · KENYA</span>
-      <span>© <span id="year"></span> REMI GACHOKI. ALL RIGHTS RESERVED.</span>
-    </div>
-  </footer>
-
-  <script>
-    
-// Close the mobile navigation after selecting a link
-const menuToggle = document.getElementById("menuToggle");
-const mainNav = document.getElementById("mainNav");
-
-menuToggle.addEventListener("click", () => {
-  const isOpen = mainNav.classList.toggle("open");
-  menuToggle.classList.toggle("active", isOpen);
-  menuToggle.setAttribute("aria-expanded", String(isOpen));
-});
-
-mainNav.querySelectorAll("a").forEach(link => {
-  link.addEventListener("click", () => {
-    mainNav.classList.remove("open");
-    menuToggle.classList.remove("active");
-    menuToggle.setAttribute("aria-expanded", "false");
-  });
-});
-
-// Reveal elements smoothly as visitors scroll
-const revealElements = document.querySelectorAll(".reveal");
-
-if ("IntersectionObserver" in window) {
-  const revealObserver = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add("visible");
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.12 });
-
-  revealElements.forEach(element => revealObserver.observe(element));
-} else {
-  revealElements.forEach(element => element.classList.add("visible"));
-}
-
-// Contact form: prepare an email for the visitor to send
-const contactForm = document.getElementById("contactForm");
-
-contactForm.addEventListener("submit", event => {
-  event.preventDefault();
-
-  const name = document.getElementById("visitorName").value.trim();
-  const email = document.getElementById("visitorEmail").value.trim();
-  const project = document.getElementById("projectType").value;
-  const message = document.getElementById("projectMessage").value.trim();
-
-  const subject = encodeURIComponent("Website enquiry from " + name);
-  const body = encodeURIComponent(
-    "Name: " + name +
-    "\nEmail: " + email +
-    "\nProject type: " + project +
-    "\n\nProject details:\n" + message
-  );
-
-  window.location.href =
-    "mailto:remigachoki@gmail.com?subject=" + subject + "&body=" + body;
-});
-
-// Automatic copyright year
-document.getElementById("year").textContent = new Date().getFullYear();
-
-// Remove the loading screen when the page is ready
-window.addEventListener("load", () => {
-  const loader = document.getElementById("pageLoader");
-  loader.classList.add("loaded");
-});
-      
-  </script>
-</body>
-              </html>
-    
+</div>
+</section>
+<section>
+<h2>What I can help with</h2>
+<p class="intro">Website work can be shaped around each organisation's goals and confirmed requirements.</p>
+<div class="services">
+<div class="service">Business websites</div>
+<div class="service">Website redesigns</div>
+<div class="service">Mobile-friendly layouts</div>
+<div class="service">Product and service showcases</div>
+<div class="service">Contact and enquiry pathways</div>
+<div class="service">Content and structure planning</div>
+</div>
+</section>
+<footer>
+<strong>Remi Gachoki</strong><br>
+remigachoki@gmail.com · 0759 119 195<br><br>
+Portfolio note: The links above are independent demonstration concepts. They should not be interpreted as commissioned or client-approved projects. Any provisional content, imagery, contact details or service claims must be verified with the relevant business before publication.
+</footer>
+</main></body></html>
